@@ -1,7 +1,7 @@
 {
   "name": "budget-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a CMS app for developers, and inspiring developers can create and post blogs about technology.  The user can log in to their account, and the user will be presented with navigation links to either the homepage, the dashboard, or they will have the option to log out.  If the developer is new to the tech blog, they can create a new account.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -21,7 +21,8 @@
   "dependencies": {
     "compression": "^1.7.4",
     "express": "^4.17.1",
-    "mongoose": "^5.5.15",
+    "mongoose": "^5.13.12",
     "morgan": "^1.9.1"
-  }
+  },
+  "keywords": []
 }
