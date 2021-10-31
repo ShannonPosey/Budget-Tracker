@@ -1,7 +1,7 @@
 let db;
 
 // establish a connection to IndexDB database called "budget-tracker" and set it to version 1
-const request = indexedDB.open("budget-tracker", 1);
+const request = indexedDB.open("budget_tracker", 1);
 
 request.onupgradeneeded = function(event) {
     const db = event.target.result;
@@ -9,7 +9,7 @@ request.onupgradeneeded = function(event) {
 };
 
 request.onsuccess = function(event) {
-    db = event.target.result
+    db = event.target.result;
     if (navigator.online) {
         uploadTransaction();
     }
@@ -41,7 +41,7 @@ function uploadTransaction() {
 
     getAll.onsuccess = function() {
         if (getAll.result.length > 0) {
-            fetch("/api/transaction", {
+            fetch("/api/transaction/bulk", {
                 method: "POST",
                 body: JSON.stringify(getAll.result),
                 headers: {
@@ -73,4 +73,4 @@ function uploadTransaction() {
 
 }
 // listen for the app to come back online
-window.addEventListener("online", uploadTransaction());
+window.addEventListener("online", uploadTransaction);

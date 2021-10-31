@@ -1,7 +1,7 @@
 # Budget Tracker Starter Code
 
 ## Description 
-This is a CMS app for developers, and inspiring developers can create and post blogs about technology.  The user can log in to their account, and the user will be presented with navigation links to either the homepage, the dashboard, or they will have the option to log out.  If the developer is new to the tech blog, they can create a new account. 
+This is a budget tracking app.  The budget app gives users a fast and easy way to track their money.  Allows users to use this app online or offline if they have poor or no network connection. 
 
 ![Social-Network-API](/img/Friends.png)
 
