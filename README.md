@@ -12,11 +12,7 @@ This is a budget tracking app.  The budget app gives users a fast and easy way t
 
 ## Installation
 
-What are the steps required to install your project?
-
-You will need to clone this project onto your local machine.
-
-`npm start`
+Vist https://dark-beast-57463.herokuapp.com/
 
 ## Usage
 MongoDb</br>IndexedDB</br>Service Worker</br>Web Manifest
