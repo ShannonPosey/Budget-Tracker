@@ -1,11 +1,11 @@
 let db;
 
 // establish a connection to IndexDB database called "budget-tracker" and set it to version 1
-const request = indexedDB.open("budget-tracker", version);
+const request = indexedDB.open("budget-tracker", 1);
 
 request.onupgradeneeded = function(event) {
     const db = event.target.result;
-    db.createObjectStore('new_addedTransaction', {autoIncrement: true});
+    db.createObjectStore("new_transaction", {autoIncrement: true});
 };
 
 request.onsuccess = function(event) {
@@ -21,27 +21,27 @@ request.onerror = function(event) {
 
 // will be executed if you attempt to submit a new transaction and there's no internet connection
 function saveRecord(record) {
-    const transaction = db.transaction(["new_addedTransaction"], "readwrite");
+    const transaction = db.transaction(["new_transaction"], "readwrite");
 
-    const addedTransactionObjectStore = transaction.objectStore("new_addedTransaction");
+    const transactionObjectStore = transaction.objectStore("new_transaction");
     
     // add new record to the store with add method
-    addedTransactionObjectStore.add(record);
+    transactionObjectStore.add(record);
 }
 
 function uploadTransaction() {
     // open a transaction on the database
-    const transaction = db.transaction(["new_addedTransaction"], "rewrite");
+    const transaction = db.transaction(["new_transaction"], "readwrite");
 
     //access the object store
-    const  addedTransactionObjectStore = transaction.objectStore("new_addedTransaction");
+    const  transactionObjectStore = transaction.objectStore("new_transaction");
 
     // get all records from the store and set to a variable
-    const getAll = addedTransactionObjectStore.getAll();
+    const getAll = transactionObjectStore.getAll();
 
     getAll.onsuccess = function() {
         if (getAll.result.length > 0) {
-            fetch("/api/transaction/bulk", {
+            fetch("/api/transaction", {
                 method: "POST",
                 body: JSON.stringify(getAll.result),
                 headers: {
@@ -54,19 +54,19 @@ function uploadTransaction() {
                         throw new Error(serverResponse);
                     }
                     // open one more transaction
-                    const transaction = db.transaction(["new_addedTransaction"], "rewrite");
+                    const transaction = db.transaction(["new_transaction"], "readwrite");
 
                     // access the new transaction object store
-                    const addedTransactionObjectStore = transaction.objectStore("new_addedTransaction");
+                    const transactionObjectStore = transaction.objectStore("new_transaction");
 
                     // clear all items in your store
-                    addedTransactionObjectStore.clear();
+                    transactionObjectStore.clear();
 
                     alert("All saved transactions have been submit!");
                 })
                 .catch(err => {
                     console.log(err);
-                });
+                })
             });
         }
     };
