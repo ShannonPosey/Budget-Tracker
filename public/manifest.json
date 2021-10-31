@@ -1,0 +1,19 @@
+{
+    "name": " Budget-Tracker",
+    "short_name": "Budget",
+    "description": "An app that allows you to keep track of your transaction.",
+    "theme_color": "#6666FF",
+    "background": "#6666ff",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "icons/icon-72x72.png",
+            "size": "72x72",
+            "type": "image/png"
+        },
+        {
+            
+        }
+    ]
+}
