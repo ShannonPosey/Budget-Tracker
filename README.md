@@ -3,8 +3,6 @@
 ## Description 
 This is a budget tracking app.  The budget app gives users a fast and easy way to track their money.  Allows users to use this app online or offline if they have poor or no network connection. 
 
-![Social-Network-API](/img/Friends.png)
-
 ## Table of Contents 
 
 * [Installation](#installation)
@@ -21,7 +19,7 @@ You will need to clone this project onto your local machine.
 `npm start`
 
 ## Usage
-
+MongoDb</br>IndexedDB</br>Service Worker</br>Web Manifest
 
 
 ## Contributing
